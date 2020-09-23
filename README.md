@@ -1,5 +1,5 @@
 # EECS281-P1-TestBashScript
-Bash script to automate testing of all files for EECS281 Fall 2020 Project 1 (Letterman)
+Bash script to automate testing of all files for EECS281 Fall 2020 Project 1 (Letterman)  
 Usage: Navigate to directory containing script and test files and use command ```./batch_script```
 
 # Test files naming convention
