@@ -1,0 +1,28 @@
+make
+output="batch_output.txt"
+rm $output
+touch $output
+
+for file in *.txt
+do
+if [[ $file =~ ^(.*)-(.*)-(.*)-(.*)-(.*).txt ]]
+then
+  [[ "${BASH_REMATCH[1]}" == "test" ]] &&
+  n="${BASH_REMATCH[2]}"
+  start="${BASH_REMATCH[3]}"
+  end="${BASH_REMATCH[4]}"
+  args="${BASH_REMATCH[5]}" 
+  cmd="./letter"
+  for (( i=0; i<${#args}; i++ )); do
+    if [[ "${args:$i:1}" == "m" ]]
+      then
+      cmd="${cmd} -o M"
+    else
+      cmd="${cmd} -${args:$i:1}"
+    fi
+  done
+  cmd="${cmd} -b ${start} -e ${end} < ${file} >> ${output}" 
+  echo $cmd | tee -a $output
+  eval ${cmd}
+fi
+done
