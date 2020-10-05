@@ -1,12 +1,12 @@
 make
 output="batch_output.txt"
-rm $output
-touch $output
+echo "" > ${output}
 
 for file in *.txt
 do
 if [[ $file =~ ^(.*)-(.*)-(.*)-(.*)-(.*).txt ]]
 then
+  echo "----------${file}----------" >> ${output}
   [[ "${BASH_REMATCH[1]}" == "test" ]] &&
   n="${BASH_REMATCH[2]}"
   start="${BASH_REMATCH[3]}"
@@ -24,5 +24,6 @@ then
   cmd="${cmd} -b ${start} -e ${end} < ${file} >> ${output}" 
   echo $cmd | tee -a $output
   eval ${cmd}
+  echo "------------------------------" >> ${output}
 fi
 done
