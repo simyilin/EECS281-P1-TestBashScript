@@ -1,0 +1,27 @@
+make
+output="batch_output.txt"
+echo "" > ${output}
+
+for file in *.txt
+do
+if [[ $file =~ ^(.*)-(.*)-(.*).txt ]]
+then
+  echo "----------${file}----------" >> ${output}
+  [[ "${BASH_REMATCH[1]}" == "test" ]] &&
+  n="${BASH_REMATCH[2]}"
+  args="${BASH_REMATCH[3]}" 
+  cmd="./MineEscape"
+  for (( i=0; i<${#args}; i++ )); do
+    if [[ "${args:$i:1}" == "s" ]]
+      then
+      cmd="${cmd} -s ${n}"
+    else
+      cmd="${cmd} -${args:$i:1}"
+    fi
+  done
+  cmd="${cmd} < ${file} >> ${output}" 
+  echo $cmd | tee -a $output
+  eval ${cmd}
+  echo "------------------------------" >> ${output}
+fi
+done
