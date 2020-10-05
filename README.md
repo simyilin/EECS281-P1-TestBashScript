@@ -1,9 +1,11 @@
-# EECS281-P1-TestBashScript
-Bash script to automate testing of all files for EECS281 Fall 2020 Project 1 (Letterman)  
+# EECS281-TestBashScript
+Bash script to automate testing of all files for EECS281 Fall 2020 Projects  
 Usage: Navigate to directory containing script and test files and use command ```./batch_script```
 
-# Test files naming convention
-test-n-start-end-flags.txt
+# Project test files naming convention
+Project 1 (Letterman) : test-n-start-end-flags.txt  
+Project 2A (Mine Escape) : test-n-flags.txt  
+_more to come..._
 
 # Output text file
 Default is batch_output.txt, can be modified by changing ```output="batch_output.txt"```
