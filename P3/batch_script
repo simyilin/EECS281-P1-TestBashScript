@@ -1,0 +1,19 @@
+make
+output="batch_output.txt"
+echo "" > ${output}
+
+for file in *.txt
+do
+if [[ $file =~ ^(.*)-(.*)-(.*)-(.*).txt ]]
+then
+  echo "----------${file}----------" >> ${output}
+  [[ "${BASH_REMATCH[1]}" == "test" ]] &&
+  [[ "${BASH_REMATCH[3]}" == "table" ]] &&
+  [[ "${BASH_REMATCH[4]}" == "commands" ]]
+  cmd="./silly"
+  cmd="${cmd} < ${file} >> ${output}"
+  echo $cmd | tee -a $output
+  eval ${cmd}
+  echo "------------------------------" >> ${output}
+fi
+done
