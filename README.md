@@ -5,6 +5,7 @@ Usage: Navigate to directory containing script and test files and use command ``
 # Project test files naming convention
 Project 1 (Letterman) : test-n-start-end-flags.txt  
 Project 2A (Mine Escape) : test-n-flags.txt  
+Project 3 (SillyQL) : test-n-table-commands.txt  
 _more to come..._
 
 # Output text file
