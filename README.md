@@ -6,7 +6,7 @@ Usage: Navigate to directory containing script and test files and use command ``
 Project 1 (Letterman) : test-n-start-end-flags.txt  
 Project 2A (Mine Escape) : test-n-flags.txt  
 Project 3 (SillyQL) : test-n-table-commands.txt  
-_more to come..._
+Project 4 (AmongUs): test-n-mode.txt
 
 # Output text file
 Default is batch_output.txt, can be modified by changing ```output="batch_output.txt"```
